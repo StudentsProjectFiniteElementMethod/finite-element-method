@@ -139,8 +139,26 @@ namespace ConsoleApplication1
             output();
         }
 
-       
-    }
+
+		protected void InputGmesh()
+		{
+			StreamReader reader = new StreamReader(@"Models/net.msh");
+			HashSet<List<string>> strs = new HashSet<List<string>>();
+			List<string> str = new List<string>();
+			string tmp;
+			str.Add(reader.ReadLine());
+
+			while (true)
+			{
+				tmp = reader.ReadLine();
+				if (tmp[0] != '$')
+					break;
+				str.Add(tmp);
+			}
+
+
+		}
+	}
     
     
 }
